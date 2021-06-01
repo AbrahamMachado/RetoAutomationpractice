@@ -3,6 +3,7 @@ package steps;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 
@@ -45,19 +46,24 @@ public class AutomationSteps extends AutomationPage {
 			clickElemento(getImgProductoBuscado());
 			setTxtResultadoBusqueda(producto);
 			validarTexto(txtResultadoBusqueda,producto);
+			BorrarTexto(getTxtBuscadorAutomation());
 		}else {
 			System.out.println("No se encuentra la pagina resultado de busqueda.");
 		}
 	}
 	
 	public void LeerArchivoExcel() throws InterruptedException, IOException {
-		String filePath = "C:\\Users\\ABRAHAM\\Desktop\\Semillero SQA\\Products.xlsx";
-		String sheetName = "Hoja1";
 		LecturaExcel lecturaExcel = new LecturaExcel();
 		
-		for (int i = 0; i < 5; i++) {
-			BorrarTexto(txtBuscadorAutomation);
-			buscarAutomation(lecturaExcel.getCellValue(filePath, sheetName, i, 0));
+		String filePath = "C:\\Users\\ABRAHAM\\eclipse-workspace\\RetoAutomationpractice\\Products.xlsx";
+		String sheetName = "Hoja1";
+		
+		ArrayList<String> listaProductos = new ArrayList<String>();
+		
+		listaProductos = lecturaExcel.LeerExcel(filePath, sheetName, 0);
+		
+		for (int i = 0; i < listaProductos.size(); i++) {
+			buscarAutomation(listaProductos.get(i));
 		}
 	}
 

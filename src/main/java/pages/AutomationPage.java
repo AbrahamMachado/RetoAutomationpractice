@@ -9,23 +9,13 @@ public class AutomationPage {
 	protected By lblResultadoBusqueda = By.xpath("//span[@class='heading-counter']");
 	protected By imgProductoBuscado;
 	protected By txtResultadoBusqueda;
-	
-	private By LocalizadorProducto(String nombreProducto) {
-		By imgXpath = By.xpath("//ul[contains(@class,'product_list')]//li[contains(@class,'first')]//a[contains(text(),'"+nombreProducto+"')]");
-		return imgXpath;
-	}
-	
-	private By LocalizadorResultadoBusqueda(String nombreProducto) {
-		By resultadoXpath = By.xpath("//h1[contains(text(),'"+nombreProducto+"')]");
-		return resultadoXpath;
-	}
 
 	public By getTxtResultadoBusqueda() {
 		return txtResultadoBusqueda;
 	}
 
 	public void setTxtResultadoBusqueda(String nombreProducto) {
-		this.txtResultadoBusqueda = LocalizadorResultadoBusqueda(nombreProducto);
+		this.txtResultadoBusqueda = By.xpath("//h1[contains(text(),'"+nombreProducto+"')]");
 	}
 
 	public By getTxtBuscadorAutomation() {
@@ -43,10 +33,9 @@ public class AutomationPage {
 	public By getImgProductoBuscado() {
 		return imgProductoBuscado;
 	}
-
-	public void setImgProductoBuscado(String nombreProducto) {
-		this.imgProductoBuscado = LocalizadorProducto(nombreProducto);
-	}
 	
+	public void setImgProductoBuscado(String nombreProducto) {
+		this.imgProductoBuscado = By.xpath("//ul[contains(@class,'product_list')]//li[contains(@class,'first')]//a[contains(text(),'"+nombreProducto+"')]");
+	}
 	
 }

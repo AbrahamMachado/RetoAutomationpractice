@@ -28,7 +28,7 @@ public class BuscadorAutomationPracticeStepDefinitios {
 
 	@Then("^se valida que el nombre seleccionado en la pagina concuerde con el del archivo excel$")
 	public void seValidaQueElNombreSeleccionadoEnLaPaginaConcuerdeConElDelArchivoExcel() {
-		
+		SeleniumWebDriver.driver.quit();
 	}
 
 }
