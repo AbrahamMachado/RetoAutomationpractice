@@ -38,9 +38,11 @@ public class AutomationSteps extends AutomationPage {
 	}
 	
 	public void buscarAutomation(String producto) throws InterruptedException {
+		
 		escribirTexto(getTxtBuscadorAutomation(), producto);
 		clickElemento(getBtnBuscadorAutomation());
 		Thread.sleep(3000);
+		
 		if (ValidarUbicacion(lblResultadoBusqueda)) {
 			setImgProductoBuscado(producto);
 			clickElemento(getImgProductoBuscado());
@@ -50,6 +52,7 @@ public class AutomationSteps extends AutomationPage {
 		}else {
 			System.out.println("No se encuentra la pagina resultado de busqueda.");
 		}
+		
 	}
 	
 	public void LeerArchivoExcel() throws InterruptedException, IOException {

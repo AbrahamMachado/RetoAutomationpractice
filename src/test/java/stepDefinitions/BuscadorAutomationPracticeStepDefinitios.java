@@ -23,7 +23,7 @@ public class BuscadorAutomationPracticeStepDefinitios {
 
 	@When("^busco los productos registrados en el excel$")
 	public void buscoLosProductosRegistradosEnElExcel() throws InterruptedException, IOException {
-		automationSteps.LeerArchivoExcel();;
+		automationSteps.LeerArchivoExcel();
 	}
 
 	@Then("^se valida que el nombre seleccionado en la pagina concuerde con el del archivo excel$")
